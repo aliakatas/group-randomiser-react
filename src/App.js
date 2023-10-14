@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 
+import React, { useState } from 'react';
 import random from 'random';
 
 function createRandomGroups(n, groupSize, allowLess = false) {
