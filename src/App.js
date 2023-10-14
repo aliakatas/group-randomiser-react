@@ -49,30 +49,32 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
       </header>
-      <h1>Random Groups Generator</h1>
-      <label htmlFor="num1">Number of students:</label>
-      <input
-        type="number"
-        id="num1"
-        value={num1}
-        onChange={(e) => setNumOfStudents(e.target.value)}
-      /><br />
+      <div className="App-main">
+        <h1>Random Groups Generator</h1>
+        <label htmlFor="num1">Number of students:</label>
+        <input
+          type="number"
+          id="num1"
+          value={num1}
+          onChange={(e) => setNumOfStudents(e.target.value)}
+        /><br />
 
-      <label htmlFor="num2">Number of groups:</label>
-      <input
-        type="number"
-        id="num2"
-        value={num2}
-        onChange={(e) => setNumOfGroups(e.target.value)}
-      /><br />
+        <label htmlFor="num2">Number of groups:</label>
+        <input
+          type="number"
+          id="num2"
+          value={num2}
+          onChange={(e) => setNumOfGroups(e.target.value)}
+        /><br />
 
-      <label htmlFor="allowLess">Allow Less?</label>
-      <input
-        type="checkbox"
-        id="allowLess"
-        checked={allowLess}
-        onChange={(e) => setAllowLess(e.target.checked)}
-      /><br />
+        <label htmlFor="allowLess">Allow Less?</label>
+        <input
+          type="checkbox"
+          id="allowLess"
+          checked={allowLess}
+          onChange={(e) => setAllowLess(e.target.checked)}
+        /><br />
+      </div>
     </div>
 
 
