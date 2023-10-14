@@ -2,21 +2,20 @@ import logo from './logo.svg';
 import './App.css';
 
 import React, { useState } from 'react';
-import random from 'random';
 
 function createRandomGroups(n, groupSize, allowLess = false) {
-  const names = Array.from({ length: n }, (_, i) => (i + 1).toString());
+  const names = Array.from({ length: n }, (_, i) => `${i + 1}`);
   const groups = [];
 
   if (groupSize > n) {
-    return groups;
+    return [names];
   }
 
   while (n >= groupSize) {
     const group = [];
     for (let i = 0; i < groupSize; i++) {
-      const nameIndex = random.int(0, names.length - 1);
-      const name = names.splice(nameIndex, 1)[0];
+      const randomIndex = Math.floor(Math.random() * names.length);
+      const name = names.splice(randomIndex, 1)[0];
       group.push(name);
     }
 
@@ -25,7 +24,7 @@ function createRandomGroups(n, groupSize, allowLess = false) {
   }
 
   if (allowLess) {
-    groups.push(...names);
+    groups.push(names);
   } else {
     const numGroups = groups.length;
     for (let i = 0; i < names.length; i++) {
@@ -52,7 +51,7 @@ function App() {
       return;
     }
 
-    const data = createRandomGroups(num1, num2, allowLess);
+    const data = createRandomGroups(num1Value, num2Value, allowLess);
     setGroups(data);
   };
   
@@ -94,9 +93,14 @@ function App() {
       <div>
         {groups.map((group, index) => (
           <p key={index}>
-            <strong>Group {index + 1}:</strong> {group.join(', ')}
+            <strong>Group {index + 1}:</strong>  {group.join(', ')}
           </p>
           ))}
+      </div>
+      <div className="App-main">
+        <br />
+        <h6>Thank you for choosing GroupRandomiser for your business.</h6>
+        <br />
       </div>
     </div>
   );
