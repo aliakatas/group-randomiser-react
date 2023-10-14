@@ -39,9 +39,22 @@ function createRandomGroups(n, groupSize, allowLess = false) {
 
 function App() {
   const [num1, setNumOfStudents] = useState(1);
-  const [num2, setNumOfGroups] = useState(1);
+  const [num2, setGroupSize] = useState(1);
   const [allowLess, setAllowLess] = useState(false);
   const [groups, setGroups] = useState([]);
+
+  const handleGenerateGroups = () => {
+    const num1Value = parseInt(num1, 10);
+    const num2Value = parseInt(num2, 10);
+
+    if (isNaN(num1Value) || isNaN(num2Value)) {
+      alert('Please enter valid numbers for Number of students and Size of each group.');
+      return;
+    }
+
+    const data = createRandomGroups(num1, num2, allowLess);
+    setGroups(data);
+  };
   
   return (
 
@@ -59,12 +72,12 @@ function App() {
           onChange={(e) => setNumOfStudents(e.target.value)}
         /><br />
 
-        <label htmlFor="num2">Number of groups:</label>
+        <label htmlFor="num2">Size of each groups:</label>
         <input
           type="number"
           id="num2"
           value={num2}
-          onChange={(e) => setNumOfGroups(e.target.value)}
+          onChange={(e) => setGroupSize(e.target.value)}
         /><br />
 
         <label htmlFor="allowLess">Allow Less?</label>
@@ -74,40 +87,18 @@ function App() {
           checked={allowLess}
           onChange={(e) => setAllowLess(e.target.checked)}
         /><br />
+
+        <button onClick={handleGenerateGroups}>Generate Groups</button>
+        <br />
+      </div>
+      <div>
+        {groups.map((group, index) => (
+          <p key={index}>
+            <strong>Group {index + 1}:</strong> {group.join(', ')}
+          </p>
+          ))}
       </div>
     </div>
-
-
-
-
-
-    // <div className="App">
-    //   <header className="App-header">
-    //     <img src={logo} className="App-logo" alt="logo" />
-    //     <p>
-    //       Edit <code>src/App.js</code> and save to reload.
-    //     </p>
-    //     <a
-    //       className="App-link"
-    //       href="https://reactjs.org"
-    //       target="_blank"
-    //       rel="noopener noreferrer"
-    //     >
-    //       Learn React
-    //     </a>
-    //   </header>
-    // </div>
-    // 
-    
-    // <button onClick={handleGenerateGroups}>Generate Groups</button>
-    // 
-    // <div>
-    //  {groups.map((group, index) => (
-    //    <p key={index}>
-    //      <strong>Group {index + 1}:</strong> {group.join(', ')}
-    //    </p>
-    //  ))}
-    // </div>
   );
 }
 
