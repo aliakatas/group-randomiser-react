@@ -71,7 +71,7 @@ function App() {
           onChange={(e) => setNumOfStudents(e.target.value)}
         /><br />
 
-        <label htmlFor="num2">Size of each groups:</label>
+        <label htmlFor="num2">Size of each group:</label>
         <input
           type="number"
           id="num2"
