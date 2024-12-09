@@ -1,8 +1,14 @@
-# Create React App
+# Group randomiser
+Say you have a group of N students and want to randomly assign them to a number of smaller groups. How do you make it fair?
+
+Given the size of the group of students, the number of students in the small groups and if you are prepared to accept some groups having less students, go ahead and get the sets using the app!
+This assumes that each student has a number between 1 and N associated with them.
+
+## Create React App
 
 This directory is a brief example of a [Create React App](https://github.com/facebook/create-react-app) site that can be deployed to Vercel with zero configuration.
 
-## Deploy Your Own
+### Deploy Your Own
 
 Deploy your own Create React App project with Vercel.
 
@@ -10,21 +16,21 @@ Deploy your own Create React App project with Vercel.
 
 _Live Example: https://create-react-template.vercel.app/_
 
-## Available Scripts
+### Available Scripts
 
 In the project directory, you can run:
 
-### `npm start`
+#### `npm start`
 
 Runs the app in the development mode. Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 The page will reload when you make changes. You may also see any lint errors in the console.
 
-### `npm test`
+#### `npm test`
 
 Launches the test runner in the interactive watch mode. See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+#### `npm run build`
 
 Builds the app for production to the `build` folder.
 
