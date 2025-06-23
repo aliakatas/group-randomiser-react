@@ -1,5 +1,5 @@
 # Stage 1: Build React app
-FROM node:20-alpine AS builder
+FROM docker.io/node:20-alpine AS builder
 
 # Set working directory
 WORKDIR /app
@@ -21,7 +21,7 @@ COPY . .
 RUN npm run build
 # or RUN yarn build
 
-
+#################################
 # Stage 2: Serve with nginx
 FROM docker.io/nginx:alpine
 
