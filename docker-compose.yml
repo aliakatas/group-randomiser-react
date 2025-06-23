@@ -3,8 +3,11 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    image: docker.io/aristos86/group-randomiser-react:latest-aarch64
     restart: unless-stopped
     container_name: group-randomiser
+    env_file:
+      - .env
     networks:
       - traefik-net
 
@@ -12,12 +15,12 @@ services:
       - "traefik.enable=true"
       # HTTP Router - redirects to HTTPS
       - "traefik.http.routers.group-randomiser.entrypoints=http"
-      - "traefik.http.routers.group-randomiser.rule=Host(`randomiser.helixnoctishub.uk`)"
+      - "traefik.http.routers.group-randomiser.rule=Host(`${HOSTNAME}`)"
       - "traefik.http.middlewares.group-randomiser-https-redirect.redirectscheme.scheme=https"
       - "traefik.http.routers.group-randomiser.middlewares=group-randomiser-https-redirect"
       
       - "traefik.http.routers.group-randomiser-secure.entrypoints=https"
-      - "traefik.http.routers.group-randomiser-secure.rule=Host(`randomiser.helixnoctishub.uk`)"
+      - "traefik.http.routers.group-randomiser-secure.rule=Host(`${HOSTNAME}`)"
       - "traefik.http.routers.group-randomiser-secure.tls=true"
       - "traefik.http.routers.group-randomiser-secure.service=group-randomiser"
 
