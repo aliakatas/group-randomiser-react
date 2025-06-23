@@ -9,7 +9,7 @@ RequiresMountsFor=%t/containers
 Type=oneshot
 RemainAfterExit=true
 Environment=PODMAN_SYSTEMD_UNIT=%n
-#EnvironmentFile=-%h/Github/group-randomiser-react/.env
+EnvironmentFile=-%h/Github/group-randomiser-react/.env
 WorkingDirectory=%h/Github/group-randomiser-react
 ExecStartPre=/usr/bin/podman-compose pull
 ExecStart=/usr/bin/podman-compose up -d
