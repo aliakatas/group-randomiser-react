@@ -3,7 +3,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: docker.io/aristos86/group-randomiser-react:latest-aarch64
+    image: docker.io/aristos86/group-randomiser-react:latest-x86_64
     restart: unless-stopped
     container_name: group-randomiser
     env_file:
